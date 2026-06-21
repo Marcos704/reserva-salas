@@ -69,7 +69,18 @@ export default function Salas() {
     }
 
     async function createSala() {
+        if (!nome.trim()) {
+            alert('Informe o nome da sala')
+            return
+        }
+
+        if (!capacidade || capacidade <= 0) {
+            alert('Informe uma capacidade válida')
+            return
+        }
+
         await api.post('/salas', { nome, capacidade })
+
         setNome('')
         setCapacidade(10)
         loadSalas()
@@ -95,7 +106,34 @@ export default function Salas() {
     async function createReserva() {
         if (!selectedSala) return
 
-        // regra de negócio: capacidade
+        // validações obrigatórias
+        if (!resTitulo.trim()) {
+            alert('Informe o título da reserva')
+            return
+        }
+
+        if (!resPessoas || resPessoas <= 0) {
+            alert('Informe a quantidade de pessoas')
+            return
+        }
+
+        if (!resInicio) {
+            alert('Informe o início da reserva')
+            return
+        }
+
+        if (!resFim) {
+            alert('Informe o fim da reserva')
+            return
+        }
+
+        // validação de lógica temporal
+        if (new Date(resFim).getTime() <= new Date(resInicio).getTime()) {
+            alert('O horário final deve ser maior que o inicial')
+            return
+        }
+
+        // regra de negócio: capacidade da sala
         if (resPessoas > selectedSala.capacidade) {
             alert(`A sala suporta no máximo ${selectedSala.capacidade} pessoas`)
             return
