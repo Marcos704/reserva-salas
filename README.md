@@ -183,4 +183,4 @@ Este projeto é livre para fins educacionais e pode ser modificado livremente.
 
 ## 🎥 Demonstração do sistema
 
-[![Demonstração do Sistema](https://img.youtube.com/vi/J3cUrPZu9f4/0.jpg)](https://www.youtube.com/watch?v=J3cUrPZu9f4)
+[![Demonstração do Sistema](https://img.youtube.com/vi/Ead2gjOIO50/0.jpg)](https://www.youtube.com/watch?v=Ead2gjOIO50)
