@@ -98,7 +98,7 @@ export default function Salas() {
             setResInicio('')
             setResFim('')
 
-        } catch (err: any) {
+        } catch (err: any) { // teste
             if (err.response?.status === 409) {
                 alert(err.response.data.message)
                 return
